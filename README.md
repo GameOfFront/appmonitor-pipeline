@@ -37,6 +37,7 @@ O projeto utiliza GitHub Actions com os seguintes workflows:
 - `ci.yml`: pipeline com três jobs sequenciais (`validate`, `test`, `package`)
 - `run-monitor.yml`: demonstração de uso de variáveis (`env`, `vars`, `secrets`)
 - `deploy.yml`: simulação de deploy em produção com aprovação manual
+- `diagnostic.yml`: diagnóstico automatizado de variáveis essenciais com logs e summary
 
 ---
 
