@@ -1,5 +1,24 @@
 ![CI](https://img.shields.io/github/actions/workflow/status/GameOfFront/appmonitor-pipeline/ci.yml?branch=main&label=CI%20Status)
 
+---
+
+## 📊 Logs e Summaries no GitHub Actions
+
+Durante a execução do workflow, o GitHub Actions registra logs detalhados de cada etapa, permitindo depuração precisa em caso de falhas.
+
+### 📁 Logs com Debug
+
+- Com a variável `ACTIONS_STEP_DEBUG=true`, é possível obter informações internas de execução.
+- As mensagens `::warning::`, `::error::` e `::notice::` facilitam alertas no log sem quebrar a pipeline.
+
+### 🧾 Summaries
+
+- O job `package` adiciona um **resumo Markdown** ao final da execução.
+- Isso permite visualizar o ambiente (`runner.os`), branch (`github.ref_name`) e link direto para artefatos.
+
+Essas práticas são essenciais para **monitoramento, auditoria e manutenção saudável de pipelines CI/CD.**
+
+
 
 # appmonitor-pipeline
 Repositório do Luiz Carlos Ardovino para o AT de pipeline.
@@ -51,22 +70,5 @@ São variáveis de ambiente declaradas no escopo de jobs ou steps. Usadas com `$
 env:
   APP_ENV: dev
 
----
-
-## 📊 Logs e Summaries no GitHub Actions
-
-Durante a execução do workflow, o GitHub Actions registra logs detalhados de cada etapa, permitindo depuração precisa em caso de falhas.
-
-### 📁 Logs com Debug
-
-- Com a variável `ACTIONS_STEP_DEBUG=true`, é possível obter informações internas de execução.
-- As mensagens `::warning::`, `::error::` e `::notice::` facilitam alertas no log sem quebrar a pipeline.
-
-### 🧾 Summaries
-
-- O job `package` adiciona um **resumo Markdown** ao final da execução.
-- Isso permite visualizar o ambiente (`runner.os`), branch (`github.ref_name`) e link direto para artefatos.
-
-Essas práticas são essenciais para **monitoramento, auditoria e manutenção saudável de pipelines CI/CD.**
 
 
