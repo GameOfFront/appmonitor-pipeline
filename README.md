@@ -1,28 +1,9 @@
 ![CI](https://img.shields.io/github/actions/workflow/status/GameOfFront/appmonitor-pipeline/ci.yml?branch=main&label=CI%20Status)
 
----
-
-## 📊 Logs e Summaries no GitHub Actions
-
-Durante a execução do workflow, o GitHub Actions registra logs detalhados de cada etapa, permitindo depuração precisa em caso de falhas.
-
-### 📁 Logs com Debug
-
-- Com a variável `ACTIONS_STEP_DEBUG=true`, é possível obter informações internas de execução.
-- As mensagens `::warning::`, `::error::` e `::notice::` facilitam alertas no log sem quebrar a pipeline.
-
-### 🧾 Summaries
-
-- O job `package` adiciona um **resumo Markdown** ao final da execução.
-- Isso permite visualizar o ambiente (`runner.os`), branch (`github.ref_name`) e link direto para artefatos.
-
-Essas práticas são essenciais para **monitoramento, auditoria e manutenção saudável de pipelines CI/CD.**
-
-
-
 # appmonitor-pipeline
 Repositório do Luiz Carlos Ardovino para o AT de pipeline.
 
+---
 
 # AppMonitor Pipeline
 
@@ -30,7 +11,7 @@ Este repositório simula a construção de um pipeline de integração contínua
 
 ---
 
-## Git na entrega contínua
+## 🚀 Git na entrega contínua
 
 O Git é a base do controle de versão moderna, permitindo:
 
@@ -42,23 +23,24 @@ Em pipelines como este, o Git viabiliza o gatilho automático de workflows a par
 
 ---
 
-## Importância de Branches e Tags
+## 🌿 Importância de Branches e Tags
 
 - **Branches** permitem o desenvolvimento paralelo sem afetar a versão principal do projeto (`main`). Por exemplo: `ci/setup`, `feature/logging`, etc.
 - **Tags** marcam versões específicas e imutáveis no histórico, facilitando lançamentos, como `v0.1.0`.
 
 ---
 
-## Scripts e Workflows
+## 🧪 Scripts e Workflows
 
 O projeto utiliza GitHub Actions com os seguintes workflows:
 
 - `ci.yml`: pipeline com três jobs sequenciais (`validate`, `test`, `package`)
 - `run-monitor.yml`: demonstração de uso de variáveis (`env`, `vars`, `secrets`)
+- `deploy.yml`: simulação de deploy em produção com aprovação manual
 
 ---
 
-## Variáveis, Secrets e Contextos no GitHub Actions
+## 🔐 Variáveis, Secrets e Contextos no GitHub Actions
 
 GitHub Actions oferece três formas principais de configurar dados para execução de workflows:
 
@@ -69,6 +51,3 @@ São variáveis de ambiente declaradas no escopo de jobs ou steps. Usadas com `$
 ```yaml
 env:
   APP_ENV: dev
-
-
-
