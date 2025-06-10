@@ -1,4 +1,4 @@
-![CI](https://img.shields.io/github/actions/workflow/status/SEU_USUARIO/appmonitor-pipeline/ci.yml?branch=main&label=CI%20Status)
+![CI](https://img.shields.io/github/actions/workflow/status/GameOfFront/appmonitor-pipeline/ci.yml?branch=main&label=CI%20Status)
 
 
 # appmonitor-pipeline
