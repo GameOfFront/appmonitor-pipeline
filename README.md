@@ -1,3 +1,6 @@
+![CI](https://img.shields.io/github/actions/workflow/status/SEU_USUARIO/appmonitor-pipeline/ci.yml?branch=main&label=CI%20Status)
+
+
 # appmonitor-pipeline
 Repositório do Luiz Carlos Ardovino para o AT de pipeline.
 
