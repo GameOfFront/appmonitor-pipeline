@@ -1,10 +1,7 @@
 #!/bin/bash
 
-# status-check.sh - Verifica se a aplicação está online (simulado)
-
 echo "[INFO] Iniciando verificação de status da aplicação..."
 
-# Simulação de verificação
 status="online"
 
 if [ "$status" == "online" ]; then
