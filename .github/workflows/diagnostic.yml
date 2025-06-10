@@ -1,0 +1,47 @@
+name: Diagnóstico de Falhas
+
+on:
+  workflow_dispatch:
+
+jobs:
+  validate-variables:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verificar variáveis obrigatórias
+        run: |
+          echo "::group::Verificação de variáveis obrigatórias"
+
+          missing_vars=()
+
+          if [ -z "${{ vars.APP_ENV }}" ]; then
+            echo "::error::Variável APP_ENV não está definida."
+            missing_vars+=("APP_ENV")
+          else
+            echo "::notice::APP_ENV = ${{ vars.APP_ENV }}"
+          fi
+
+          if [ -z "${{ secrets.API_KEY }}" ]; then
+            echo "::error::Segredo API_KEY não está definido."
+            missing_vars+=("API_KEY")
+          else
+            echo "::notice::API_KEY foi carregada com sucesso (oculta nos logs)"
+          fi
+
+          echo "::endgroup::"
+
+       
+          if [ ${#missing_vars[@]} -ne 0 ]; then
+            echo "::error::Variáveis ausentes: ${missing_vars[*]}"
+            echo "### ❌ Diagnóstico: Falhas encontradas" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            for var in "${missing_vars[@]}"; do
+              echo "- ❗ **${var}** está faltando. Verifique em *Settings > Secrets* ou *Variables*" >> $GITHUB_STEP_SUMMARY
+            done
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "🔧 **Solução sugerida:** Defina as variáveis obrigatórias no ambiente do repositório." >> $GITHUB_STEP_SUMMARY
+            exit 1
+          fi
+
+          echo "✅ Todas as variáveis obrigatórias estão definidas."
+          echo "### ✅ Diagnóstico: Nenhuma falha encontrada" >> $GITHUB_STEP_SUMMARY
+          echo "- APP_ENV e API_KEY estão presentes e disponíveis para o pipeline." >> $GITHUB_STEP_SUMMARY
