@@ -1,0 +1,17 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    name: Deploy Job
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+    steps:
+      - name: Simular deploy
+        run: echo "Deploying to $PROD_DOMAIN"
+        env:
+          PROD_DOMAIN: ${{ vars.PROD_DOMAIN }}
